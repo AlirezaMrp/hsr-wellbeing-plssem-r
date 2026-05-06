@@ -1,0 +1,21 @@
+"Effect","Indirect_Effect"
+"SQ -> TEA -> SWB",0.241
+"SQ -> CET -> SWB",0.025
+"SQ -> TEA -> CET -> SWB",0.163
+"SQ -> TEA -> CL",0.211
+"SQ -> CET -> CL",0.012
+"SQ -> TEA -> CET -> CL",0.075
+"TEA -> CET -> SWB",0.276
+"TEA -> SWB -> CL",0.113
+"TEA -> CET -> SWB -> CL",0.077
+"CET -> SWB -> CL",0.114
+"SQ -> SWB -> CL",0.02
+"SQ -> TEA -> SWB -> CL",0.067
+"SQ -> CET -> SWB -> CL",0.007
+"SQ -> TEA -> CET -> SWB -> CL",0.045
+"SQ -> SWB -> WTP",0.039
+"TEA -> SWB -> WTP",0.225
+"CET -> SWB -> WTP",0.227
+"SQ -> TEA -> SWB -> WTP",0.133
+"SQ -> CET -> SWB -> WTP",0.014
+"SQ -> TEA -> CET -> SWB -> WTP",0.09

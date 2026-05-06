@@ -1,0 +1,278 @@
+---
+title: "PLS-SEM Results - HSR Well-Being Model"
+author: "Alireza Moradpour"
+output: html_document
+date: "2026-04-26"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+```{r}
+## R Markdown
+library(seminr)
+library(knitr)
+library(kableExtra)
+library(DiagrammeR)
+
+# Run your full clean R script first
+source("scripts/hsr_plssem_analysis.R")
+```
+
+
+```{r}
+cronbach_alpha <- function(dataframe, items) {
+  item_data <- dataframe[, items]
+  item_data <- item_data[complete.cases(item_data), ]
+  k <- ncol(item_data)
+  item_vars <- apply(item_data, 2, var)
+  total_var <- var(rowSums(item_data))
+  alpha <- (k / (k - 1)) * (1 - sum(item_vars) / total_var)
+  return(alpha)
+}
+
+alpha_values <- sapply(construct_items, function(items) {
+  cronbach_alpha(hsr_data, items)
+})
+
+rhoa_values <- tryCatch(
+  rho_A(hsr_pls, constructs = names(construct_items)),
+  error = function(e) rep(NA, length(construct_items))
+)
+
+rhoC_AVE_table <- rhoC_AVE(hsr_pls)
+
+reliability_full <- data.frame(
+  Construct = names(construct_items),
+  Cronbach_Alpha = round(as.numeric(alpha_values), 3),
+  rhoA = round(as.numeric(rhoa_values), 3),
+  rhoC = round(rhoC_AVE_table[, "rhoC"], 3),
+  AVE = round(rhoC_AVE_table[, "AVE"], 3)
+)
+
+kable(reliability_full,
+      caption = "Construct Reliability and Convergent Validity") %>%
+  kable_styling(full_width = FALSE)
+```
+
+
+```{r}
+
+outer_loadings_table <- as.data.frame(hsr_pls$outer_loadings)
+
+kable(outer_loadings_table,
+      digits = 3,
+      caption = "Outer Loadings") %>%
+  kable_styling(full_width = FALSE)
+```
+
+
+```{r}
+kable(htmt_table,
+      digits = 3,
+      caption = "HTMT Ratio Matrix") %>%
+  kable_styling(full_width = FALSE)
+```
+
+```{r}
+path_table <- as.data.frame(hsr_pls$path_coef)
+
+kable(path_table,
+      digits = 3,
+      caption = "Structural Path Coefficients") %>%
+  kable_styling(full_width = FALSE)
+```
+  
+
+```{r}
+  f2_table <- data.frame(
+  Relationship = c(
+    "Service Quality -> Subjective Well-Being",
+    "Travel Experience Affect -> Subjective Well-Being",
+    "Cognitive Evaluation -> Subjective Well-Being",
+    "Travel Experience Affect -> Customer Loyalty",
+    "Cognitive Evaluation -> Customer Loyalty",
+    "Subjective Well-Being -> Customer Loyalty",
+    "Subjective Well-Being -> Willingness to Pay"
+  ),
+  f2 = c(
+    fSquared(hsr_pls, iv = "Service_Quality", dv = "Subjective_Well_Being"),
+    fSquared(hsr_pls, iv = "Travel_Experience_Affect", dv = "Subjective_Well_Being"),
+    fSquared(hsr_pls, iv = "Cognitive_Evaluation", dv = "Subjective_Well_Being"),
+    fSquared(hsr_pls, iv = "Travel_Experience_Affect", dv = "Customer_Loyalty"),
+    fSquared(hsr_pls, iv = "Cognitive_Evaluation", dv = "Customer_Loyalty"),
+    fSquared(hsr_pls, iv = "Subjective_Well_Being", dv = "Customer_Loyalty"),
+    fSquared(hsr_pls, iv = "Subjective_Well_Being", dv = "Willingness_to_Pay")
+  )
+)
+```
+
+## R² Values
+
+```{r}
+r2_raw <- hsr_pls$rSquared
+
+r2_table <- data.frame(
+  Construct = rownames(r2_raw),
+  R2 = round(as.numeric(r2_raw[, 1]), 3),
+  row.names = NULL
+)
+
+kable(r2_table,
+      caption = "Coefficient of Determination (R²)") %>%
+  kable_styling(full_width = FALSE)
+```
+
+## f² Values
+
+```{r}
+kable(f2_table,
+      digits = 3,
+      caption = "f² Effect Sizes") %>%
+  kable_styling(full_width = FALSE)
+```
+  
+## VIF
+```{r} 
+  kable(vif_table,
+      digits = 3,
+      caption = "Collinearity Assessment Using VIF") %>%
+  kable_styling(full_width = FALSE)
+```  
+
+
+---
+
+## Structural Path Coefficients - List Format
+```{r}
+path_matrix <- hsr_pls$path_coef
+path_list <- as.data.frame(as.table(path_matrix))
+colnames(path_list) <- c("From", "To", "Path_Coefficient")
+path_list <- path_list[path_list$Path_Coefficient != 0 & !is.na(path_list$Path_Coefficient), ]
+path_list$Path_Coefficient <- round(path_list$Path_Coefficient, 3)
+
+kable(path_list,
+      caption = "Structural Path Coefficients - List Format") %>%
+  kable_styling(full_width = FALSE)
+```
+  
+
+## 3. Total effects, total indirect effects and specific indirect effects
+
+
+```{r}
+# Direct effects matrix
+B <- hsr_pls$path_coef
+B[is.na(B)] <- 0
+
+# Total effects = B + B^2 + B^3 + ...
+total_matrix <- B
+power_matrix <- B
+
+for (i in 2:nrow(B)) {
+  power_matrix <- power_matrix %*% B
+  total_matrix <- total_matrix + power_matrix
+}
+
+total_matrix <- round(total_matrix, 3)
+
+# Total indirect effects = total effects - direct effects
+total_indirect_matrix <- round(total_matrix - B, 3)
+
+# Convert total effects to list
+total_effects_list <- as.data.frame(as.table(total_matrix))
+colnames(total_effects_list) <- c("From", "To", "Total_Effect")
+total_effects_list <- total_effects_list[
+  total_effects_list$Total_Effect != 0 & !is.na(total_effects_list$Total_Effect), ]
+
+# Convert total indirect effects to list
+total_indirect_list <- as.data.frame(as.table(total_indirect_matrix))
+colnames(total_indirect_list) <- c("From", "To", "Total_Indirect_Effect")
+total_indirect_list <- total_indirect_list[
+  total_indirect_list$Total_Indirect_Effect != 0 & !is.na(total_indirect_list$Total_Indirect_Effect), ]
+
+kable(total_effects_list,
+      caption = "Total Effects - List Format") %>%
+  kable_styling(full_width = FALSE)
+
+kable(total_indirect_list,
+      caption = "Total Indirect Effects - List Format") %>%
+  kable_styling(full_width = FALSE)
+```
+  
+ 
+---
+
+## 4. Specific indirect effects
+
+```{r}
+find_paths <- function(B, start, end, visited = c()) {
+  visited <- c(visited, start)
+  next_nodes <- colnames(B)[B[start, ] != 0]
+  next_nodes <- setdiff(next_nodes, visited)
+  
+  paths <- list()
+  
+  for (node in next_nodes) {
+    if (node == end) {
+      paths <- c(paths, list(c(start, end)))
+    } else {
+      sub_paths <- find_paths(B, node, end, visited)
+      for (p in sub_paths) {
+        paths <- c(paths, list(c(start, p)))
+      }
+    }
+  }
+  
+  return(paths)
+}
+
+specific_effects <- data.frame(
+  Path = character(),
+  Specific_Indirect_Effect = numeric()
+)
+
+constructs <- rownames(B)
+
+for (from in constructs) {
+  for (to in constructs) {
+    paths_found <- find_paths(B, from, to)
+    
+    for (p in paths_found) {
+      if (length(p) > 2) {
+        effect <- 1
+        for (i in 1:(length(p) - 1)) {
+          effect <- effect * B[p[i], p[i + 1]]
+        }
+        
+        specific_effects <- rbind(
+          specific_effects,
+          data.frame(
+            Path = paste(p, collapse = " -> "),
+            Specific_Indirect_Effect = round(effect, 3)
+          )
+        )
+      }
+    }
+  }
+}
+
+specific_effects <- specific_effects[specific_effects$Specific_Indirect_Effect != 0, ]
+
+kable(specific_effects,
+      caption = "Specific Indirect Effects") %>%
+  kable_styling(full_width = FALSE) 
+``` 
+  
+  
+  
+```{r} 
+  graph_hsr <- dot_graph(hsr_pls)
+DiagrammeR::grViz(graph_hsr)
+```
+
+```{r} 
+  summary(boot_hsr)
+``` 
+  

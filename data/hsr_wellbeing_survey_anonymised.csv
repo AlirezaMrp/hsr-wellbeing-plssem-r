@@ -1,0 +1,58 @@
+SQ1,SQ2,SQ3,SQ4,SQ5,TEA1,TEA2,TEA3,TEA4,CET1,CET2,CET3,CET4,SWB1,SWB2,SWB3,SWB4,CL1,CL2,CL3,CL4,WTP1,WTP2,WTP3,Gender,Age,Education,Employment,Region,Income
+5,5,4,4,4,5,5,4,5,5,5,5,5,5,4,4,4,5,5,5,4,5,5,2,Male,45-54, Master degree,Self-employed,Europe,High
+5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,Female,45-54,Doctorate,Employee,Europe,Middle
+4,5,5,5,5,5,5,5,4,5,5,4,5,5,4,5,4,5,5,5,5,5,4,5,Male,45-54, Master degree,Self-employed,Europe,High
+1,2,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,3,3,5,5,3,3,5,Male,55-64,Doctorate,Employee,Europe,Middle
+4,4,1,1,3,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,4,3,3,Female,25-34, Master degree,Self-employed,Europe,Middle
+5,5,3,3,5,5,4,4,4,4,4,4,4,4,3,5,4,5,4,4,3,4,4,4,Female,25-34, Master degree,Student,Europe,Low
+5,5,4,3,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,2,2,4,Male,45-54, Master degree,Employee,Australia,Middle
+5,5,5,4,4,5,5,5,5,5,4,5,5,5,4,5,4,5,5,4,3,4,3,3,Male,25-34, Master degree,Employee,Europe,Middle
+5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,Female,45-54,Other,Employee,Europe,Middle
+4,5,5,5,2,5,5,5,5,5,5,5,5,5,4,4,4,5,5,5,5,5,5,5,Male,35-44, Master degree,Employee,Europe,High
+3,4,4,4,3,4,2,3,2,3,2,2,4,4,3,3,3,2,3,2,2,3,2,4,Male,25-34,Doctorate,Employee,Europe,Middle
+2,4,2,1,4,2,4,2,3,3,3,3,4,4,4,5,3,4,4,3,4,2,1,2,Male,35-44,Doctorate,Retired,Europe,High
+4,4,5,4,5,4,4,4,3,4,3,4,4,4,4,4,3,4,4,4,4,4,4,4,Male,25-34, Master degree,Employee,Europe,Middle
+2,3,3,4,3,4,3,3,4,2,3,3,2,2,4,3,4,2,4,2,3,3,3,4,Male,45-54, Master degree,Student,Europe,High
+3,4,1,1,4,4,4,4,3,4,3,4,2,4,3,3,2,3,3,2,1,2,1,4,Female,45-54, Master degree,Self-employed,Europe,Low
+4,5,2,3,5,4,4,2,4,4,4,4,3,5,4,3,4,5,5,4,3,2,3,4,Male,25-34, Master degree,Student,Europe,Middle
+5,5,5,5,5,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,4,4,4,Male,55-64, Master degree,Employee,Europe,High
+4,4,4,5,5,4,4,5,4,4,4,4,4,4,4,4,4,5,5,3,4,4,4,5,Male,35-44,Doctorate,Self-employed,Europe,High
+5,5,4,5,5,4,4,4,4,4,5,5,5,4,4,4,4,5,5,4,4,4,4,4,Female,25-34, Master degree,Employee,Europe,Middle
+4,4,4,5,5,4,4,4,4,4,4,3,5,4,4,5,5,4,5,3,4,5,5,5,Male,25-34, Master degree,Searching for a job,Europe,Prefer not to say
+4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,Prefer not to say,25-34, Master degree,Self-employed,Europe,Middle
+4,5,5,4,3,4,4,5,4,2,2,2,2,4,3,4,5,4,4,4,4,4,4,4,Male,55-64,Doctorate,Self-employed,Europe,High
+4,4,4,4,3,4,4,4,2,4,2,3,4,3,3,4,3,5,5,4,4,4,4,4,Female,18-24,Bachelor degree,Searching for a job,Europe,Prefer not to say
+4,4,2,4,4,4,4,3,4,4,2,2,4,3,3,2,2,4,4,3,4,3,5,5,Female,45-54,Doctorate,Self-employed,Europe,High
+4,4,4,4,4,4,4,4,3,3,4,3,4,4,3,4,2,4,4,4,3,2,3,3,Female,35-44, Master degree,Retired,Europe,Middle
+4,4,4,4,4,4,5,5,4,4,4,4,4,4,4,4,3,4,4,4,4,3,4,4,Female,25-34,Bachelor degree,Searching for a job,Europe,Low
+4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,Male,35-44, Master degree,Employee,Europe,High
+4,3,2,4,4,3,3,4,3,3,2,2,4,3,3,4,3,3,4,4,2,2,2,2,Prefer not to say,35-44,Doctorate,Self-employed,Europe,Middle
+4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,Female,35-44, Master degree,Searching for a job,Australia,Middle
+4,4,4,4,4,4,4,3,4,3,4,4,4,3,4,4,4,4,4,4,4,3,4,4,Female,25-34,Bachelor degree,Student,Australia,Low
+5,4,4,4,4,5,5,4,4,4,3,3,5,3,4,4,3,5,5,5,5,4,4,4,Male,55-64,Other,Retired,Europe,Low
+4,4,4,4,3,4,3,3,4,3,5,3,4,3,4,2,4,3,4,2,5,3,4,3,Female,25-34, Master degree,Student,Europe,Prefer not to say
+4,4,4,4,4,3,4,2,2,3,2,2,4,2,2,4,2,4,4,2,2,2,2,4,Female,25-34,Bachelor degree,Student,Europe,Low
+4,5,4,3,5,4,4,5,2,4,2,3,4,3,2,2,2,4,4,2,2,2,2,5,Female,25-34,Bachelor degree,Student,Europe,Low
+5,5,5,5,5,5,5,5,4,4,3,2,3,4,4,5,3,5,4,5,5,4,3,5,Female,35-44, Master degree,Self-employed,Europe,Middle
+4,4,4,3,3,4,4,3,3,4,4,4,3,3,4,4,3,3,3,3,2,2,2,2,Male,35-44,Bachelor degree,Student,Europe,Low
+4,5,4,4,3,4,5,5,3,3,3,4,5,4,3,4,4,4,4,4,4,4,3,4,Male,35-44, Master degree,Employee,Europe,High
+5,5,4,3,5,5,5,3,2,3,4,4,5,3,2,4,2,5,4,5,2,2,1,2,Female,25-34, Master degree,Searching for a job,Europe,Low
+4,4,2,3,5,4,5,5,3,5,4,5,5,4,3,1,4,4,5,3,5,3,2,1,Male,35-44, Master degree,Student,Europe,Low
+5,5,3,4,5,4,5,5,5,3,3,3,3,4,4,4,4,4,4,5,5,4,4,5,Female,25-34, Master degree,Not working and not searching for a job,Europe,Prefer not to say
+5,5,5,5,5,5,5,5,5,5,5,5,4,5,5,5,5,5,5,4,3,4,3,4,Female,35-44, Master degree,Employee,Europe,Middle
+5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,4,4,Female,25-34,Bachelor degree,Searching for a job,Europe,Middle
+4,5,4,3,4,5,5,5,4,4,4,4,4,5,4,5,4,5,5,4,3,4,2,4,Male,45-54, Master degree,Employee,Europe,High
+4,5,4,4,4,5,5,5,4,4,4,4,4,5,4,5,4,5,5,5,4,4,4,4,Male,35-44,Bachelor degree,Employee,Europe,High
+5,5,5,5,4,5,5,5,4,5,5,5,4,4,4,5,5,5,5,5,3,4,4,5,Female,25-34, Master degree,Student,Europe,Low
+5,5,5,5,3,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,2,4,3,4,Male,25-34, Master degree,Student,Europe,Low
+5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,4,4,4,Male,25-34, Master degree,Employee,Europe,Middle
+4,4,4,3,3,4,5,4,4,5,4,4,4,4,4,4,4,4,4,4,4,3,3,2,Male,35-44,Bachelor degree,Employee,Europe,Middle
+4,4,4,4,4,5,5,5,5,4,4,4,4,5,5,5,4,5,5,4,4,4,4,4,Female,35-44, Master degree,Student,Europe,Low
+5,5,5,4,4,5,5,5,4,4,4,4,4,5,5,5,4,5,5,4,3,4,3,4,Female,35-44,Bachelor degree,Searching for a job,Europe,Low
+5,5,5,4,3,4,4,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,Male,25-34, Master degree,Student,Europe,Low
+4,5,3,3,4,5,5,4,4,5,3,4,4,5,4,3,4,2,3,2,3,4,2,2,Male,25-34, Master degree,Searching for a job,Europe,Low
+5,5,3,3,3,4,4,4,3,4,2,3,4,4,3,4,3,4,3,3,2,2,1,3,Male,35-44, Master degree,Searching for a job,Europe,Middle
+4,3,4,3,3,3,3,3,4,3,3,4,3,3,3,3,2,2,2,2,1,2,1,1,Male,35-44,Bachelor degree,Student,Europe,Low
+2,3,3,3,4,4,4,4,4,4,3,3,3,4,3,1,3,4,4,3,4,4,3,4,Male,35-44, Master degree,Employee,Asia,High
+5,5,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,3,4,2,4,Male,18-24,Bachelor degree,Student,Europe,Low
+4,5,5,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,Male,55-64, Master degree,Employee,Europe,Middle

@@ -1,0 +1,10 @@
+"Dependent","Predictor","VIF"
+"Subjective_Well_Being","Service_Quality",1.548
+"Subjective_Well_Being","Travel_Experience_Affect",2.449
+"Subjective_Well_Being","Cognitive_Evaluation",2.015
+"Cognitive_Evaluation","Service_Quality",1.54
+"Cognitive_Evaluation","Travel_Experience_Affect",1.54
+"Customer_Loyalty","Subjective_Well_Being",2.736
+"Customer_Loyalty","Cognitive_Evaluation",2.48
+"Customer_Loyalty","Travel_Experience_Affect",2.548
+"Willingness_to_Pay","Subjective_Well_Being",NA
