@@ -55,5 +55,5 @@ The study applies PLS-SEM to analyse behavioural and experiential relationships 
 
 ## Author
 
-Alireza Moradpour 
+Alireza Moradpour
 MSc Transportation Engineering and Mobility
